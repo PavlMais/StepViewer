@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="UI.Views.ActiveSessionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="500" d:DesignWidth="300">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <materialDesign:ColorZone
+            Mode="Inverted"
+            VerticalAlignment="Stretch">
+            <DockPanel>
+                <materialDesign:PopupBox
+                    DockPanel.Dock="Right"
+                    PlacementMode="BottomAndAlignRightEdges">
+                    <ListBox>
+                        <ListBoxItem>
+                            Search
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            Nice Popup
+                        </ListBoxItem>
+                        <ListBoxItem>
+                            Goodbye.
+                        </ListBoxItem>
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel
+                    Orientation="Horizontal">
+                    <ToggleButton
+                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}" 
+                        IsChecked="{Binding BaseViewModel.IsLeftMenuOpen, Mode=TwoWay}"/>
+                    <TextBlock
+                        FontSize="18"
+                        VerticalAlignment="Center"
+                        Margin="16 0 0 0">
+                        Session name
+                    </TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="Time: 13:34" HorizontalAlignment="Stretch" FontSize="18" Padding="18"/>
+
+                <Grid> 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Stop" Margin="5"/>
+                    <Button Content="Pause" Grid.Column="1"  Margin="5"/>
+                </Grid>
+
+                
+                
+
+
+            </StackPanel>
+            
+        </ScrollViewer>
+        
+    </Grid>
+</UserControl>

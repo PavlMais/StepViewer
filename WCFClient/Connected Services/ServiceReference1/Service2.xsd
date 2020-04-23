@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="OperationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" type="tns:ResultError" />
+      <xs:element minOccurs="0" name="IsSuccess" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationResult" nillable="true" type="tns:OperationResult" />
+  <xs:simpleType name="ResultError">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UsernameIsUsed" />
+      <xs:enumeration value="UserNotFound" />
+      <xs:enumeration value="PasswordIsIncorrect" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResultError" nillable="true" type="tns:ResultError" />
+</xs:schema>

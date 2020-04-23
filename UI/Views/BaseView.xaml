@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="UI.Views.BaseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+
+             xmlns:vm="clr-namespace:UI.ViewModels"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             d:DesignHeight="500" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <vm:BaseViewModel/>
+    </UserControl.DataContext>
+    
+    
+    <Grid>
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsLeftMenuOpen, UpdateSourceTrigger=PropertyChanged}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="220">
+                    <ListBox
+                        SelectedIndex="0"
+                        SelectedItem="{Binding SelectedContent, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Contents}">
+                        
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding LeftMenuClickCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ViewModelName}" Margin="32 0 32 0" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+
+
+            <Grid>
+
+
+                <ContentControl Content = "{Binding CurrentContent}" />
+                
+
+
+
+            </Grid>
+
+
+            
+        </materialDesign:DrawerHost>
+        
+        
+        
+        
+        
+        
+    </Grid>
+    
+</UserControl>
