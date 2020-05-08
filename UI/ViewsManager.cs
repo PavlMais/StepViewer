@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using UI.ViewModels;
+using WCFClient;
+
 namespace UI
 {
 
@@ -12,10 +15,15 @@ namespace UI
     class ViewsManager : BindableBase
     {
         public static ViewsManager Instance;
+        public WindowStyle WindowStyle { get => _windowStyle; set => SetProperty(ref _windowStyle, value); }
+        public WindowState WindowState { get => _windowState; set => SetProperty(ref _windowState, value); }
+
 
         private BaseViewModel baseViewModel;
         private LoginViewModel loginViewModel = new LoginViewModel();
         private BindableBase _CurrentViewModel;
+        private WindowState _windowState = WindowState.Normal;
+        private WindowStyle _windowStyle = WindowStyle.SingleBorderWindow;
 
         public BindableBase CurrentViewModel
         {
@@ -29,8 +37,17 @@ namespace UI
             Instance = this;
         }
 
-     
 
+        public void FullMode()
+        {
+            WindowState = WindowState.Maximized;
+            WindowStyle = WindowStyle.None;
+        }
+        public void NormalMode()
+        {
+            WindowState = WindowState.Normal;
+            WindowStyle = WindowStyle.SingleBorderWindow;
+        }
 
 
         public void ChangeView(View view)
@@ -41,13 +58,18 @@ namespace UI
                     CurrentViewModel = loginViewModel;
                     break;
                 case View.Base:
-                    CurrentViewModel = new BaseViewModel();
+                    CurrentViewModel = new BaseViewModel(this);
                     break;
-                
+
                 default:
                     throw new Exception("View model not found");
                     break;
             }
+        }
+
+        public void OnWindowsClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            API.proxy.Logout();
         }
     }
 }

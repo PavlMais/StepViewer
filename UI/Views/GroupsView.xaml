@@ -18,12 +18,18 @@
             FontFamily="{DynamicResource MaterialDesignFont}"
              Name="GroupsControl"
              d:DesignHeight="500" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PopupBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
 
         <materialDesign:ColorZone
             Mode="Inverted"
@@ -84,9 +90,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-
-
-
         <materialDesign:DialogHost Grid.Row="1" CloseOnClickAway="True" IsOpen="{Binding IsDialogCreateGroupOpen}">
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="16">
@@ -109,35 +112,78 @@
                             CommandParameter="{Binding Text, ElementName=GroupNameBox}"
                             >
 
-                            
+
                         </Button>
                         <Button
                             Style="{StaticResource MaterialDesignFlatButton}"
                             IsCancel="True"
                             Margin="0 8 8 0"
                             Command="materialDesign:DialogHost.CloseDialogCommand">
-                            
+
                             Cancel
                         </Button>
                     </StackPanel>
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
-            
-                    
-                    <Button
-                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                        VerticalAlignment="Bottom"
-                        HorizontalAlignment="Right"
-                        Margin="30">
-                        <materialDesign:PackIcon
-                            Kind="Plus"
-                            Height="22"
-                            Width="22" />
-                    </Button>
-         
+        </materialDesign:DialogHost>
+
+        <materialDesign:DialogHost Grid.Row="1" CloseOnClickAway="True" IsOpen="{Binding IsDialogJoinGroupOpen}">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="16">
+                    <TextBlock>
+                        Send invito to group.
+                    </TextBlock>
+                    <TextBox
+                        Margin="0 8 0 0"
+                        HorizontalAlignment="Stretch"
+                        x:Name="Group2NameBox" />
+                    <StackPanel
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                        <Button
+                            Content="Send"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            IsDefault="True"
+                            Margin="0 8 8 0"
+                            Command="{Binding SendInviteCommand}"
+                            CommandParameter="{Binding Text, ElementName=Group2NameBox}"/>
+
+                        <Button
+                            Content="Cancel"
+                            Style="{StaticResource MaterialDesignFlatButton}"
+                            IsCancel="True"
+                            Margin="0 8 8 0"
+                            Command="materialDesign:DialogHost.CloseDialogCommand"/>
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
 
 
+        <materialDesign:PopupBox
+            Grid.Row="1"
+            Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}"
+            PlacementMode="LeftAndAlignMiddles"
+            UnfurlOrientation="Horizontal"
+            ToolTip="Manage items"
+            Margin="0 0 10 10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <StackPanel
+                Orientation="Horizontal">
+                <ToggleButton
+                    Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                    ToolTip="Create group"
+                    IsChecked="{Binding IsDialogCreateGroupOpen}">
+                    <materialDesign:PackIcon Kind="AddThick" />
+                </ToggleButton>
+                <ToggleButton
+                        Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                        ToolTip="Join group"
+                        IsChecked="{Binding IsDialogJoinGroupOpen}">
+                    <materialDesign:PackIcon Kind="AccountAddOutline" />
+                </ToggleButton>
+            </StackPanel>
+        </materialDesign:PopupBox>
     </Grid>
 </UserControl>

@@ -46,7 +46,7 @@ namespace UI.ViewModels
         public IAsyncCommand RegisterCommand { get; set; }
 
         public bool HasErrors => this.errors.HasErrors;
-
+        ///private API api = API.GetInstance();
         private readonly Helpers.PropertyErrors errors;
         private string _username;
         private SecureString _password;
@@ -86,18 +86,18 @@ namespace UI.ViewModels
 
             
 
-            OperationResult res = await APIProxy.api.LoginAsync(Username, Password);
+            var res = await API.proxy.LoginAsync(Username, "pass");
 
-            if (res.IsSuccess)
+            if (!res.HasError)
             {
+                API.CurrentUser = res.Data;
                 ViewsManager.Instance.ChangeView(View.Base);
-
             }
             else
             {
                 switch (res.Error)
                 {
-                    case ResultError.UserNotFound:
+                    case ResultError.NotFound:
                         errors.Add(nameof(Username), "Username not found!");
                         break;
                     case ResultError.PasswordIsIncorrect:
@@ -124,9 +124,9 @@ namespace UI.ViewModels
 
 
 
-            OperationResult res = APIProxy.api.Register(Username, Password);
+            Result res = API.proxy.Register(Username, "pass");
 
-            if (res.IsSuccess)
+            if (!res.HasError)
             {
                 MessageBox.Show("Register success!");
             }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UI.Views
 {
     /// <summary>
-    /// Interaction logic for BaseView2.xaml
+    /// Interaction logic for JoinSessionView.xaml
     /// </summary>
-    public partial class BaseView : UserControl
+    public partial class JoinSessionView : UserControl
     {
-        public BaseView()
+        public JoinSessionView()
         {
             InitializeComponent();
         }

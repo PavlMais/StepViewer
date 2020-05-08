@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace UI.Models
 {
-    public class User
+    public class User : IdBindable
     {
-        public int Id { get; set; }
-        public string Username { get; set; }
+        private string _username;
+
+        public string Username { get => _username; set => SetProperty(ref _username, value); }
     }
 }

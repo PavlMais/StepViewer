@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace UI.Views
 {
     /// <summary>
-    /// Interaction logic for BaseView2.xaml
+    /// Interaction logic for NotifView.xaml
     /// </summary>
-    public partial class BaseView : UserControl
+    public partial class NotifView : UserControl
     {
-        public BaseView()
+        public NotifView()
         {
             InitializeComponent();
+        }
+
+        private void List2Box_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
         }
     }
 }

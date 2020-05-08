@@ -23,6 +23,9 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
+            Closing += ViewsManager.Instance.OnWindowsClosing;
         }
+
+        
     }
 }

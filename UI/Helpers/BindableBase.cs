@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UI
 {
-    class BindableBase : INotifyPropertyChanged
+    public class BindableBase : INotifyPropertyChanged
     {
 
         protected virtual void SetProperty<T>(ref T member, T val,

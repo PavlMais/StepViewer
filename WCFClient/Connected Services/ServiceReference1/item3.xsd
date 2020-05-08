@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Service/Service1/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ResultOfUserQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="User" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q1:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfUserQo1Oyztf" nillable="true" type="tns:ResultOfUserQo1Oyztf" />
+  <xs:complexType name="Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Error" type="tns:ResultError" />
+      <xs:element minOccurs="0" name="HasError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Result" nillable="true" type="tns:Result" />
+  <xs:simpleType name="ResultError">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UsernameIsUsed" />
+      <xs:enumeration value="NotFound" />
+      <xs:enumeration value="PasswordIsIncorrect" />
+      <xs:enumeration value="ErrorOnMessage" />
+      <xs:enumeration value="NotExist" />
+      <xs:enumeration value="Null" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResultError" nillable="true" type="tns:ResultError" />
+  <xs:complexType name="ResultOfGroupQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Group" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q2:Group" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfGroupQo1Oyztf" nillable="true" type="tns:ResultOfGroupQo1Oyztf" />
+  <xs:complexType name="ResultOfActiveSessionQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ActiveSession" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q3:ActiveSession" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfActiveSessionQo1Oyztf" nillable="true" type="tns:ResultOfActiveSessionQo1Oyztf" />
+  <xs:complexType name="ResultOfArrayOfGroupInviteQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfGroupInvite" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q4:ArrayOfGroupInvite" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfArrayOfGroupInviteQo1Oyztf" nillable="true" type="tns:ResultOfArrayOfGroupInviteQo1Oyztf" />
+  <xs:complexType name="ResultOfArrayOfintuHEDJ7Dj">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfint" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Data" nillable="true" type="q5:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfArrayOfintuHEDJ7Dj" nillable="true" type="tns:ResultOfArrayOfintuHEDJ7Dj" />
+  <xs:complexType name="ResultOfArrayOfGroupQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfGroup" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q6:ArrayOfGroup" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfArrayOfGroupQo1Oyztf" nillable="true" type="tns:ResultOfArrayOfGroupQo1Oyztf" />
+  <xs:complexType name="ResultOfArrayOfUserQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfUser" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q7:ArrayOfUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfArrayOfUserQo1Oyztf" nillable="true" type="tns:ResultOfArrayOfUserQo1Oyztf" />
+  <xs:complexType name="ResultOfArrayOfActiveSessionQo1Oyztf">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/Service" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfActiveSession" Namespace="http://schemas.datacontract.org/2004/07/Service.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Result">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Service.DTO" minOccurs="0" name="Data" nillable="true" type="q8:ArrayOfActiveSession" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResultOfArrayOfActiveSessionQo1Oyztf" nillable="true" type="tns:ResultOfArrayOfActiveSessionQo1Oyztf" />
+</xs:schema>

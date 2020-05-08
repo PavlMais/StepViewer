@@ -15,9 +15,17 @@ namespace WCFClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OperationResult", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Result", Namespace="http://schemas.datacontract.org/2004/07/Service")]
     [System.SerializableAttribute()]
-    public partial class OperationResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfGroupQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfArrayOfGroupInviteQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfArrayOfintuHEDJ7Dj))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfArrayOfGroupQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfArrayOfUserQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfArrayOfActiveSessionQo1Oyztf))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WCFClient.ServiceReference1.ResultOfUserQo1Oyztf))]
+    public partial class Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -26,7 +34,10 @@ namespace WCFClient.ServiceReference1 {
         private WCFClient.ServiceReference1.ResultError ErrorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsSuccessField;
+        private bool HasErrorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -52,14 +63,27 @@ namespace WCFClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsSuccess {
+        public bool HasError {
             get {
-                return this.IsSuccessField;
+                return this.HasErrorField;
             }
             set {
-                if ((this.IsSuccessField.Equals(value) != true)) {
-                    this.IsSuccessField = value;
-                    this.RaisePropertyChanged("IsSuccess");
+                if ((this.HasErrorField.Equals(value) != true)) {
+                    this.HasErrorField = value;
+                    this.RaisePropertyChanged("HasError");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
                 }
             }
         }
@@ -70,6 +94,190 @@ namespace WCFClient.ServiceReference1 {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfGroupQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfGroupQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.Group DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.Group Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfActiveSessionQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfActiveSessionQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.ActiveSession DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.ActiveSession Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfArrayOfGroupInviteQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfArrayOfGroupInviteQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.GroupInvite[] DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.GroupInvite[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfArrayOfintuHEDJ7Dj", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfArrayOfintuHEDJ7Dj : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfArrayOfGroupQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfArrayOfGroupQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.Group[] DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.Group[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfArrayOfUserQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfArrayOfUserQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.User[] DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.User[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfArrayOfActiveSessionQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfArrayOfActiveSessionQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.ActiveSession[] DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.ActiveSession[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResultOfUserQo1Oyztf", Namespace="http://schemas.datacontract.org/2004/07/Service")]
+    [System.SerializableAttribute()]
+    public partial class ResultOfUserQo1Oyztf : WCFClient.ServiceReference1.Result {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.User DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.User Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
             }
         }
     }
@@ -82,103 +290,19 @@ namespace WCFClient.ServiceReference1 {
         UsernameIsUsed = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        UserNotFound = 1,
+        NotFound = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PasswordIsIncorrect = 2,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Group", Namespace="http://schemas.datacontract.org/2004/07/Service.DTO")]
-    [System.SerializableAttribute()]
-    public partial class Group : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ErrorOnMessage = 3,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotExist = 4,
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int[] MembersIdsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int OwnerIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] MembersIds {
-            get {
-                return this.MembersIdsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MembersIdsField, value) != true)) {
-                    this.MembersIdsField = value;
-                    this.RaisePropertyChanged("MembersIds");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int OwnerId {
-            get {
-                return this.OwnerIdField;
-            }
-            set {
-                if ((this.OwnerIdField.Equals(value) != true)) {
-                    this.OwnerIdField = value;
-                    this.RaisePropertyChanged("OwnerId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Null = 5,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -244,6 +368,115 @@ namespace WCFClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Group", Namespace="http://schemas.datacontract.org/2004/07/Service.DTO")]
+    [System.SerializableAttribute()]
+    public partial class Group : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsOwnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] MembersIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.User OwnerField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsOwner {
+            get {
+                return this.IsOwnerField;
+            }
+            set {
+                if ((this.IsOwnerField.Equals(value) != true)) {
+                    this.IsOwnerField = value;
+                    this.RaisePropertyChanged("IsOwner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] MembersIds {
+            get {
+                return this.MembersIdsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MembersIdsField, value) != true)) {
+                    this.MembersIdsField = value;
+                    this.RaisePropertyChanged("MembersIds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.User Owner {
+            get {
+                return this.OwnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerField, value) != true)) {
+                    this.OwnerField = value;
+                    this.RaisePropertyChanged("Owner");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ActiveSession", Namespace="http://schemas.datacontract.org/2004/07/Service.DTO")]
     [System.SerializableAttribute()]
     public partial class ActiveSession : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -255,7 +488,7 @@ namespace WCFClient.ServiceReference1 {
         private int GroupIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ushort IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MulticastAddresField;
@@ -287,7 +520,7 @@ namespace WCFClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ushort Id {
+        public int Id {
             get {
                 return this.IdField;
             }
@@ -335,73 +568,224 @@ namespace WCFClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GroupInvite", Namespace="http://schemas.datacontract.org/2004/07/Service.DTO")]
+    [System.SerializableAttribute()]
+    public partial class GroupInvite : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.User FromUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FromUserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WCFClient.ServiceReference1.Group ToGroupField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ToGroupIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.User FromUser {
+            get {
+                return this.FromUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FromUserField, value) != true)) {
+                    this.FromUserField = value;
+                    this.RaisePropertyChanged("FromUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FromUserId {
+            get {
+                return this.FromUserIdField;
+            }
+            set {
+                if ((this.FromUserIdField.Equals(value) != true)) {
+                    this.FromUserIdField = value;
+                    this.RaisePropertyChanged("FromUserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WCFClient.ServiceReference1.Group ToGroup {
+            get {
+                return this.ToGroupField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ToGroupField, value) != true)) {
+                    this.ToGroupField = value;
+                    this.RaisePropertyChanged("ToGroup");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ToGroupId {
+            get {
+                return this.ToGroupIdField;
+            }
+            set {
+                if ((this.ToGroupIdField.Equals(value) != true)) {
+                    this.ToGroupIdField = value;
+                    this.RaisePropertyChanged("ToGroupId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService", CallbackContract=typeof(WCFClient.ServiceReference1.IServiceCallback))]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
-        WCFClient.ServiceReference1.OperationResult Login(string username, System.Security.SecureString password);
+        WCFClient.ServiceReference1.ResultOfUserQo1Oyztf Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
-        System.Threading.Tasks.Task<WCFClient.ServiceReference1.OperationResult> LoginAsync(string username, System.Security.SecureString password);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfUserQo1Oyztf> LoginAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
-        WCFClient.ServiceReference1.OperationResult Register(string username, System.Security.SecureString password);
+        WCFClient.ServiceReference1.ResultOfUserQo1Oyztf Register(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Register", ReplyAction="http://tempuri.org/IService/RegisterResponse")]
-        System.Threading.Tasks.Task<WCFClient.ServiceReference1.OperationResult> RegisterAsync(string username, System.Security.SecureString password);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfUserQo1Oyztf> RegisterAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateGroup", ReplyAction="http://tempuri.org/IService/CreateGroupResponse")]
-        void CreateGroup(string name);
+        WCFClient.ServiceReference1.ResultOfGroupQo1Oyztf CreateGroup(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateGroup", ReplyAction="http://tempuri.org/IService/CreateGroupResponse")]
-        System.Threading.Tasks.Task CreateGroupAsync(string name);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfGroupQo1Oyztf> CreateGroupAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Logout", ReplyAction="http://tempuri.org/IService/LogoutResponse")]
+        WCFClient.ServiceReference1.Result Logout();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Logout", ReplyAction="http://tempuri.org/IService/LogoutResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> LogoutAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SendGroupInvite", ReplyAction="http://tempuri.org/IService/SendGroupInviteResponse")]
-        void SendGroupInvite(int userId, int groupId);
+        WCFClient.ServiceReference1.Result SendGroupInvite(string groupName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SendGroupInvite", ReplyAction="http://tempuri.org/IService/SendGroupInviteResponse")]
-        System.Threading.Tasks.Task SendGroupInviteAsync(int userId, int groupId);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> SendGroupInviteAsync(string groupName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroups", ReplyAction="http://tempuri.org/IService/GetGroupsResponse")]
-        WCFClient.ServiceReference1.Group[] GetGroups();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AcceptGroupInvite", ReplyAction="http://tempuri.org/IService/AcceptGroupInviteResponse")]
+        WCFClient.ServiceReference1.Result AcceptGroupInvite(int inviteId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroups", ReplyAction="http://tempuri.org/IService/GetGroupsResponse")]
-        System.Threading.Tasks.Task<WCFClient.ServiceReference1.Group[]> GetGroupsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AcceptGroupInvite", ReplyAction="http://tempuri.org/IService/AcceptGroupInviteResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> AcceptGroupInviteAsync(int inviteId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
-        WCFClient.ServiceReference1.User[] GetUsers(int[] usersIds);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CancelGroupInvite", ReplyAction="http://tempuri.org/IService/CancelGroupInviteResponse")]
+        WCFClient.ServiceReference1.Result CancelGroupInvite(int inviteId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
-        System.Threading.Tasks.Task<WCFClient.ServiceReference1.User[]> GetUsersAsync(int[] usersIds);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SearchUsers", ReplyAction="http://tempuri.org/IService/SearchUsersResponse")]
-        WCFClient.ServiceReference1.User[] SearchUsers(string query);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SearchUsers", ReplyAction="http://tempuri.org/IService/SearchUsersResponse")]
-        System.Threading.Tasks.Task<WCFClient.ServiceReference1.User[]> SearchUsersAsync(string query);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CancelGroupInvite", ReplyAction="http://tempuri.org/IService/CancelGroupInviteResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> CancelGroupInviteAsync(int inviteId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/StartSession", ReplyAction="http://tempuri.org/IService/StartSessionResponse")]
-        ushort StartSession(string sessionName, int groupId);
+        WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf StartSession(string name, int groupId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/StartSession", ReplyAction="http://tempuri.org/IService/StartSessionResponse")]
-        System.Threading.Tasks.Task<ushort> StartSessionAsync(string sessionName, int groupId);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> StartSessionAsync(string name, int groupId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/JoinSession", ReplyAction="http://tempuri.org/IService/JoinSessionResponse")]
-        void JoinSession(int sessionId);
+        WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf JoinSession(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/JoinSession", ReplyAction="http://tempuri.org/IService/JoinSessionResponse")]
-        System.Threading.Tasks.Task JoinSessionAsync(int sessionId);
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> JoinSessionAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroupsInvites", ReplyAction="http://tempuri.org/IService/GetGroupsInvitesResponse")]
+        WCFClient.ServiceReference1.ResultOfArrayOfGroupInviteQo1Oyztf GetGroupsInvites();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroupsInvites", ReplyAction="http://tempuri.org/IService/GetGroupsInvitesResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfGroupInviteQo1Oyztf> GetGroupsInvitesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserGroupsIds", ReplyAction="http://tempuri.org/IService/GetUserGroupsIdsResponse")]
+        WCFClient.ServiceReference1.ResultOfArrayOfintuHEDJ7Dj GetUserGroupsIds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserGroupsIds", ReplyAction="http://tempuri.org/IService/GetUserGroupsIdsResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfintuHEDJ7Dj> GetUserGroupsIdsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroups", ReplyAction="http://tempuri.org/IService/GetGroupsResponse")]
+        WCFClient.ServiceReference1.ResultOfArrayOfGroupQo1Oyztf GetGroups(int[] ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetGroups", ReplyAction="http://tempuri.org/IService/GetGroupsResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfGroupQo1Oyztf> GetGroupsAsync(int[] ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
+        WCFClient.ServiceReference1.ResultOfArrayOfUserQo1Oyztf GetUsers(int[] ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfUserQo1Oyztf> GetUsersAsync(int[] ids);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActiveSessionById", ReplyAction="http://tempuri.org/IService/GetActiveSessionByIdResponse")]
+        WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf GetActiveSessionById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActiveSessionById", ReplyAction="http://tempuri.org/IService/GetActiveSessionByIdResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> GetActiveSessionByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActiveSessions", ReplyAction="http://tempuri.org/IService/GetActiveSessionsResponse")]
+        WCFClient.ServiceReference1.ResultOfArrayOfActiveSessionQo1Oyztf GetActiveSessions();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetActiveSessions", ReplyAction="http://tempuri.org/IService/GetActiveSessionsResponse")]
+        System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfActiveSessionQo1Oyztf> GetActiveSessionsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InviteReceived", ReplyAction="http://tempuri.org/IService/InviteReceivedResponse")]
-        void InviteReceived(int fromUserId, int groupId);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/OnSessionStarted")]
+        void OnSessionStarted(WCFClient.ServiceReference1.ActiveSession session);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SessionStarted", ReplyAction="http://tempuri.org/IService/SessionStartedResponse")]
-        void SessionStarted(WCFClient.ServiceReference1.ActiveSession session);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/OnActiveSessionUpdated")]
+        void OnActiveSessionUpdated(WCFClient.ServiceReference1.ActiveSession activeSession);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/OnGroupInvitesUpdated")]
+        void OnGroupInvitesUpdated(WCFClient.ServiceReference1.GroupInvite[] groupInvites);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/OnGroupListUpdated")]
+        void OnGroupListUpdated(WCFClient.ServiceReference1.Group[] groups);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -432,76 +816,124 @@ namespace WCFClient.ServiceReference1 {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public WCFClient.ServiceReference1.OperationResult Login(string username, System.Security.SecureString password) {
+        public WCFClient.ServiceReference1.ResultOfUserQo1Oyztf Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.OperationResult> LoginAsync(string username, System.Security.SecureString password) {
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfUserQo1Oyztf> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
         }
         
-        public WCFClient.ServiceReference1.OperationResult Register(string username, System.Security.SecureString password) {
+        public WCFClient.ServiceReference1.ResultOfUserQo1Oyztf Register(string username, string password) {
             return base.Channel.Register(username, password);
         }
         
-        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.OperationResult> RegisterAsync(string username, System.Security.SecureString password) {
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfUserQo1Oyztf> RegisterAsync(string username, string password) {
             return base.Channel.RegisterAsync(username, password);
         }
         
-        public void CreateGroup(string name) {
-            base.Channel.CreateGroup(name);
+        public WCFClient.ServiceReference1.ResultOfGroupQo1Oyztf CreateGroup(string name) {
+            return base.Channel.CreateGroup(name);
         }
         
-        public System.Threading.Tasks.Task CreateGroupAsync(string name) {
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfGroupQo1Oyztf> CreateGroupAsync(string name) {
             return base.Channel.CreateGroupAsync(name);
         }
         
-        public void SendGroupInvite(int userId, int groupId) {
-            base.Channel.SendGroupInvite(userId, groupId);
+        public WCFClient.ServiceReference1.Result Logout() {
+            return base.Channel.Logout();
         }
         
-        public System.Threading.Tasks.Task SendGroupInviteAsync(int userId, int groupId) {
-            return base.Channel.SendGroupInviteAsync(userId, groupId);
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> LogoutAsync() {
+            return base.Channel.LogoutAsync();
         }
         
-        public WCFClient.ServiceReference1.Group[] GetGroups() {
-            return base.Channel.GetGroups();
+        public WCFClient.ServiceReference1.Result SendGroupInvite(string groupName) {
+            return base.Channel.SendGroupInvite(groupName);
         }
         
-        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.Group[]> GetGroupsAsync() {
-            return base.Channel.GetGroupsAsync();
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> SendGroupInviteAsync(string groupName) {
+            return base.Channel.SendGroupInviteAsync(groupName);
         }
         
-        public WCFClient.ServiceReference1.User[] GetUsers(int[] usersIds) {
-            return base.Channel.GetUsers(usersIds);
+        public WCFClient.ServiceReference1.Result AcceptGroupInvite(int inviteId) {
+            return base.Channel.AcceptGroupInvite(inviteId);
         }
         
-        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.User[]> GetUsersAsync(int[] usersIds) {
-            return base.Channel.GetUsersAsync(usersIds);
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> AcceptGroupInviteAsync(int inviteId) {
+            return base.Channel.AcceptGroupInviteAsync(inviteId);
         }
         
-        public WCFClient.ServiceReference1.User[] SearchUsers(string query) {
-            return base.Channel.SearchUsers(query);
+        public WCFClient.ServiceReference1.Result CancelGroupInvite(int inviteId) {
+            return base.Channel.CancelGroupInvite(inviteId);
         }
         
-        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.User[]> SearchUsersAsync(string query) {
-            return base.Channel.SearchUsersAsync(query);
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.Result> CancelGroupInviteAsync(int inviteId) {
+            return base.Channel.CancelGroupInviteAsync(inviteId);
         }
         
-        public ushort StartSession(string sessionName, int groupId) {
-            return base.Channel.StartSession(sessionName, groupId);
+        public WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf StartSession(string name, int groupId) {
+            return base.Channel.StartSession(name, groupId);
         }
         
-        public System.Threading.Tasks.Task<ushort> StartSessionAsync(string sessionName, int groupId) {
-            return base.Channel.StartSessionAsync(sessionName, groupId);
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> StartSessionAsync(string name, int groupId) {
+            return base.Channel.StartSessionAsync(name, groupId);
         }
         
-        public void JoinSession(int sessionId) {
-            base.Channel.JoinSession(sessionId);
+        public WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf JoinSession(int id) {
+            return base.Channel.JoinSession(id);
         }
         
-        public System.Threading.Tasks.Task JoinSessionAsync(int sessionId) {
-            return base.Channel.JoinSessionAsync(sessionId);
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> JoinSessionAsync(int id) {
+            return base.Channel.JoinSessionAsync(id);
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfArrayOfGroupInviteQo1Oyztf GetGroupsInvites() {
+            return base.Channel.GetGroupsInvites();
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfGroupInviteQo1Oyztf> GetGroupsInvitesAsync() {
+            return base.Channel.GetGroupsInvitesAsync();
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfArrayOfintuHEDJ7Dj GetUserGroupsIds() {
+            return base.Channel.GetUserGroupsIds();
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfintuHEDJ7Dj> GetUserGroupsIdsAsync() {
+            return base.Channel.GetUserGroupsIdsAsync();
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfArrayOfGroupQo1Oyztf GetGroups(int[] ids) {
+            return base.Channel.GetGroups(ids);
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfGroupQo1Oyztf> GetGroupsAsync(int[] ids) {
+            return base.Channel.GetGroupsAsync(ids);
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfArrayOfUserQo1Oyztf GetUsers(int[] ids) {
+            return base.Channel.GetUsers(ids);
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfUserQo1Oyztf> GetUsersAsync(int[] ids) {
+            return base.Channel.GetUsersAsync(ids);
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf GetActiveSessionById(int id) {
+            return base.Channel.GetActiveSessionById(id);
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfActiveSessionQo1Oyztf> GetActiveSessionByIdAsync(int id) {
+            return base.Channel.GetActiveSessionByIdAsync(id);
+        }
+        
+        public WCFClient.ServiceReference1.ResultOfArrayOfActiveSessionQo1Oyztf GetActiveSessions() {
+            return base.Channel.GetActiveSessions();
+        }
+        
+        public System.Threading.Tasks.Task<WCFClient.ServiceReference1.ResultOfArrayOfActiveSessionQo1Oyztf> GetActiveSessionsAsync() {
+            return base.Channel.GetActiveSessionsAsync();
         }
     }
 }

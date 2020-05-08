@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:helpers="clr-namespace:UI.Helpers"
 
              xmlns:vm="clr-namespace:UI.ViewModels"
              mc:Ignorable="d" 
@@ -16,56 +17,91 @@
              TextOptions.TextRenderingMode="Auto"
              Background="{DynamicResource MaterialDesignPaper}"
              FontFamily="{DynamicResource MaterialDesignFont}"
-             d:DesignHeight="500" d:DesignWidth="300">
-    <UserControl.DataContext>
+             d:DesignHeight="500" d:DesignWidth="800">
+    <!--<UserControl.DataContext>
         <vm:BaseViewModel/>
-    </UserControl.DataContext>
-    
-    
+    </UserControl.DataContext>-->
+    <UserControl.Resources>
+        <helpers:BoolToVisibilityConverter
+            x:Key="BoolToHiddenConverter"
+            TrueValue="Visible" FalseValue="Collapsed" 
+            />
+    </UserControl.Resources>
+
     <Grid>
-        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsLeftMenuOpen, UpdateSourceTrigger=PropertyChanged}">
-            <materialDesign:DrawerHost.LeftDrawerContent>
-                <DockPanel MinWidth="220">
-                    <ListBox
-                        SelectedIndex="0"
-                        SelectedItem="{Binding SelectedContent, UpdateSourceTrigger=PropertyChanged}"
-                        ItemsSource="{Binding Contents}">
-                        
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                                <i:InvokeCommandAction Command="{Binding LeftMenuClickCommand}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding ViewModelName}" Margin="32 0 32 0" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </DockPanel>
-            </materialDesign:DrawerHost.LeftDrawerContent>
 
 
-            <Grid>
-
-
-                <ContentControl Content = "{Binding CurrentContent}" />
-                
-
-
-
-            </Grid>
-
-
+        <StackPanel Orientation="Horizontal" Height="500" HorizontalAlignment="Right">
             
-        </materialDesign:DrawerHost>
-        
-        
-        
-        
-        
-        
+            <ToggleButton
+                Height="25"
+                Width="25"
+                VerticalAlignment="Top"
+                Margin="5"
+                IsChecked="{Binding IsAppVisible}"
+                Style="{StaticResource MaterialDesignActionToggleButton}"
+                ToolTip="Hide/Show">
+                <ToggleButton.Content>
+                    <materialDesign:PackIcon
+                        Kind="ArrowLeftBoldCircle" />
+                </ToggleButton.Content>
+                <materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="ArrowRightBoldCircle" />
+                </materialDesign:ToggleButtonAssist.OnContent>
+            </ToggleButton>
+
+            <Grid Grid.Column="1" Visibility="{Binding IsAppVisible, Converter={StaticResource BoolToHiddenConverter}}" Panel.ZIndex="44"
+              Height="500" Width="300" HorizontalAlignment="Right" Background="White">
+                <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsLeftMenuOpen, UpdateSourceTrigger=PropertyChanged}">
+                    <materialDesign:DrawerHost.LeftDrawerContent>
+                        <DockPanel MinWidth="220">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock FontSize="17" Padding="10" Text="{Binding CurrentUser.Username}"/>
+
+
+                                <ListBox Grid.Row="1"
+                            SelectedIndex="0"
+                            SelectedItem="{Binding SelectedContent, UpdateSourceTrigger=PropertyChanged}"
+                            ItemsSource="{Binding Contents}">
+
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                                            <i:InvokeCommandAction Command="{Binding LeftMenuClickCommand}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding ViewModelName}" Margin="32 0 32 0" />
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </DockPanel>
+                    </materialDesign:DrawerHost.LeftDrawerContent>
+
+                    <Grid>
+                        <ContentControl Content = "{Binding CurrentContent}" />
+                        <materialDesign:Snackbar MessageQueue="{Binding MainSnackBar}" />
+                    </Grid>
+
+
+                </materialDesign:DrawerHost>
+            </Grid>
+        </StackPanel>
+
+
+        <Grid Visibility="{Binding IsStreamVisible, Converter={StaticResource BoolToHiddenConverter}}"
+              Background="Black" Panel.ZIndex="-43">
+            <ContentControl Content="{Binding VideoStackPanel}"/>
+        </Grid>
+
     </Grid>
-    
+
 </UserControl>

@@ -17,13 +17,20 @@
               FontFamily="{DynamicResource MaterialDesignFont}"
               d:DesignHeight="500" d:DesignWidth="300">
     <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <helpers:NullVisibilityConverter x:Key="NullToVisibilityConverter"/>
+
+
         <helpers:BoolToVisibilityConverter
             x:Key="BoolToHiddenConverter"
-            TrueValue="Hidden" FalseValue="Visible" 
+            TrueValue="Visible" FalseValue="Hidden" 
             />
         <!--swich bool-->
-        
-        
+
+
     </UserControl.Resources>
     <Grid>
 
@@ -31,7 +38,6 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
 
 
         <materialDesign:ColorZone
@@ -45,7 +51,7 @@
                         <ListBoxItem>
                             Leave
                         </ListBoxItem>
-                        
+
                     </ListBox>
                 </materialDesign:PopupBox>
                 <StackPanel
@@ -64,26 +70,61 @@
         </materialDesign:ColorZone>
 
 
-        <Button Grid.Row="1"
+        <StackPanel Grid.Row="1">
+
+            <Button Grid.Row="1"
             Content="Start session" 
             Command="{Binding StartSessionCommand}" 
             Visibility="{Binding Group.IsOwner, Converter={StaticResource BoolToHiddenConverter}}"/>
 
+            <Border Visibility="{Binding Group.ActiveSession, Converter={StaticResource NullToVisibilityConverter }}" Background="DarkMagenta" BorderThickness="5" CornerRadius="7">
+                <materialDesign:Card
+                    Background="DarkMagenta"
+                    Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+                    Margin="4"
+                    Height="110">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Active session" FontSize="12" Padding="8"/>
+                        <TextBlock Text="{Binding Group.ActiveSession.Name}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" FontSize="20" Padding="12"/>
+
+                        <TextBlock  Grid.Row="2"  Padding="12">
+                            <Run Text="Members: "/>
+                            <Run Text="{Binding Group.ActiveSession.Members.Count, Mode=OneWay}"/>
+                        </TextBlock>
+                        <TextBlock Text="Time: 12:21" Grid.Row="3" Padding="12"/>
+                        <TextBlock Text="Time: 12:21" Grid.Row="3" Padding="12"/>
+                        <Button Command="{Binding JoinSessionCommand}" Height="auto" Grid.Column="1" Grid.RowSpan="2" Margin="5" Grid.Row="2" Content="Join"/>
+                    </Grid>
+                </materialDesign:Card>
+
+            </Border>
+
+            <TextBlock Grid.Row="2" FontSize="16" VerticalAlignment="Center" Padding="10">
+            <Run Text="Members: "/>
+            <Run Text="{Binding Group.Members.Count, Mode=OneWay}"/>
+            </TextBlock>
+
+            <ListBox Grid.Row="3" ItemsSource="{Binding Group.Members}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Username}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
 
-        <!--<Button
-            Grid.Row="1"
-            Style="{DynamicResource MaterialDesignRaisedButton}"
-            materialDesign:ShadowAssist.ShadowDepth="Depth2"
-            HorizontalContentAlignment="Left"
-            Padding="20,0"
-            Margin="5"
-            FontSize="17"
-            Height="auto"
-            >
-            Members: 12
-        </Button>-->
 
-
+        </StackPanel>
     </Grid>
 </UserControl>

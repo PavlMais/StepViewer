@@ -16,7 +16,9 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="500" Width="300">
+        WindowState="{Binding WindowState}"
+        WindowStyle="{Binding WindowStyle}"
+        Title="MainWindow" Height="500" Width="350">
     <Window.DataContext>
         <local:ViewsManager />
     </Window.DataContext>
@@ -34,6 +36,12 @@
         </DataTemplate>
         <DataTemplate DataType = "{x:Type viewModels:BaseViewModel}">
             <views:BaseView />
+        </DataTemplate>
+        <DataTemplate DataType = "{x:Type viewModels:ActiveSessionViewModel}">
+            <views:ActiveSessionView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:NotifViewModel}">
+            <views:NotifView/>
         </DataTemplate>
     </Window.Resources>
 
